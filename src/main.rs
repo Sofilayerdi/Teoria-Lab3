@@ -133,7 +133,6 @@ impl Parser {
     }
 }
 
-// Nuevas estructuras para el árbol sintáctico
 #[derive(Debug, Clone)]
 pub struct TreeNode {
     pub token: Token,
@@ -187,7 +186,7 @@ impl SyntaxTreeBuilder {
                         stack.push(node);
                     }
                 }
-                _ => {} // Ignorar otros tokens
+                _ => {} 
             }
         }
         
@@ -244,7 +243,6 @@ impl TreeVisualizer {
         Ok(())
     }
     
-    // Nueva función para mostrar árbol en consola
     pub fn print_tree(&self, tree: &TreeNode) {
         println!("Árbol sintáctico:");
         self.print_tree_recursive(tree, "", true);
@@ -269,21 +267,18 @@ impl TreeVisualizer {
 fn process_regex(input: &str) -> Result<(), Error> {
     println!("Input: {}", input);
     
-    // Tokenizar
+    
     let mut tokenizer = Tokenizer::new(input);
     let tokens = tokenizer.tokenize()?;
     
-    // Parsear a postfix
     let mut parser = Parser::new(tokens);
     let postfix = parser.parse()?;
     
     println!("Postfix: {:?}", postfix);
     
-    // Construir árbol sintáctico
     let tree_builder = SyntaxTreeBuilder::new(postfix);
     let syntax_tree = tree_builder.build_tree()?;
     
-    // Mostrar árbol en consola únicamente
     let visualizer = TreeVisualizer::new();
     visualizer.print_tree(&syntax_tree);
     
@@ -299,7 +294,6 @@ fn main() {
 
     let file_path = &args[1];
     
-    // Mostrar directorio actual y ruta del archivo para debugging
     let current_dir = env::current_dir().unwrap();
     println!("Directorio actual: {:?}", current_dir);
     println!("Buscando archivo: {:?}", file_path);
@@ -320,6 +314,6 @@ fn main() {
         if let Err(e) = process_regex(line) {
             println!("Error procesando '{}': {:?}", line, e);
         }
-        println!(); // Línea en blanco para separar
+        println!(); 
     }
 }
