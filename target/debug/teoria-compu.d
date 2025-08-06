@@ -1,0 +1,1 @@
+C:\Users\sofia\OneDrive\Documentos\UVG\5to\ semestre\Teoria\ de\ la\ computacion\Teoria-Lab3\target\debug\teoria-compu.exe: C:\Users\sofia\OneDrive\Documentos\UVG\5to\ semestre\Teoria\ de\ la\ computacion\Teoria-Lab3\src\main.rs
